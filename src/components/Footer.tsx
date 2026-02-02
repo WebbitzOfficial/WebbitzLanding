@@ -20,12 +20,12 @@ export default function Footer() {
               className="object-contain"
             />
           </div>
-          <p className="text-gray-400 text-sm max-w-xs text-center md:text-left">
+          <p className="text-gray-200 text-sm max-w-xs text-center md:text-left">
             Trasformiamo la tua presenza online da un semplice costo a un motore di crescita.
           </p>
         </div>
 
-        <div className="flex gap-8 text-sm text-gray-400">
+        <div className="flex gap-8 text-sm text-gray-200">
           <Link href="https://www.webbitz.it" target="_blank" className="hover:text-primary-400 transition-colors">
             Sito Ufficiale
           </Link>
@@ -37,7 +37,7 @@ export default function Footer() {
           </Link>
         </div>
 
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-300">
           © {new Date().getFullYear()} Webbitz. Tutti i diritti riservati.
         </div>
       </div>

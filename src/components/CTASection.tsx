@@ -29,14 +29,14 @@ export default function CTASection() {
               Perché il momento giusto era ieri, <br className="hidden md:block" />
               il mercato non aspetta.
             </h2>
-            <p className="text-gray-300 text-sm md:text-lg max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
+            <p className="text-gray-200 text-sm md:text-lg max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               Avere un sito web oggi è come avere le fondamenta della propria casa: senza di quelle, non puoi costruire nessun piano superiore. Un sito fatto bene è il primo passo per smettere di rincorrere i clienti e iniziare a farti trovare da loro.
             </p>
             
             <div className="flex flex-col items-center justify-between min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
               <div className="mt-4">
                 <div className="text-xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-300 to-accent-400 mb-2">Iniziamo!</div>
-                <p className="text-gray-400 text-xs md:text-base max-w-[280px] md:max-w-sm mx-auto">
+                <p className="text-gray-200 text-xs md:text-base max-w-[280px] md:max-w-sm mx-auto">
                   Non serve un budget da multinazionale, serve un'idea chiara e un lavoro professionale.
                 </p>
               </div>

@@ -43,7 +43,7 @@ export default function FloatingCTA() {
             className="btn-primary py-3 px-6 text-sm shadow-glow-lg flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 transition-transform"
           >
             <MessageSquare className="w-4 h-4" />
-            Contattaci ora
+            Inizia Ora!
           </Link>
         </motion.div>
       )}

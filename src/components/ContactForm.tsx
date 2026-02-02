@@ -23,7 +23,7 @@ export default function ContactForm() {
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
             Raccontami della tua azienda
           </h2>
-          <p className="text-sm md:text-base text-gray-400">
+          <p className="text-sm md:text-base text-gray-200">
             Compila il form e ti ricontatterò io stesso per una chiacchierata senza impegno.
           </p>
         </div>
@@ -40,7 +40,7 @@ export default function ContactForm() {
                 <Send className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Messaggio inviato!</h3>
-              <p className="text-gray-400">Ti ricontatterò al più presto. Grazie!</p>
+              <p className="text-gray-200">Ti ricontatterò al più presto. Grazie!</p>
               <button
                 onClick={() => setStatus("idle")}
                 className="mt-8 text-primary-400 font-semibold hover:underline"
@@ -52,7 +52,7 @@ export default function ContactForm() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-semibold text-gray-300 ml-1">
+                  <label htmlFor="name" className="text-sm font-semibold text-gray-200 ml-1">
                     Nome e Cognome
                   </label>
                   <input
@@ -64,7 +64,7 @@ export default function ContactForm() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="company" className="text-sm font-semibold text-gray-300 ml-1">
+                  <label htmlFor="company" className="text-sm font-semibold text-gray-200 ml-1">
                     Nome della tua Azienda
                   </label>
                   <input
@@ -78,14 +78,14 @@ export default function ContactForm() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-300 ml-1">
+                <label className="text-sm font-semibold text-gray-200 ml-1">
                   Hai già un sito web?
                 </label>
                 <div className="flex gap-4">
                   {["Sì", "No"].map((opt) => (
                     <label
                       key={opt}
-                      className="flex-1 flex items-center justify-center py-4 rounded-xl border border-gray-600 bg-gray-700 text-gray-300 cursor-pointer hover:bg-gray-600 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-500/20 has-[:checked]:text-white"
+                      className="flex-1 flex items-center justify-center py-4 rounded-xl border border-gray-600 bg-gray-700 text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-500/20 has-[:checked]:text-white"
                     >
                       <input type="radio" name="has_website" value={opt} className="hidden" defaultChecked={opt === "No"} />
                       <span className="font-medium">{opt}</span>
@@ -95,7 +95,7 @@ export default function ContactForm() {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="goal" className="text-sm font-semibold text-gray-300 ml-1">
+                <label htmlFor="goal" className="text-sm font-semibold text-gray-200 ml-1">
                   Qual è il tuo obiettivo principale?
                 </label>
                 <select

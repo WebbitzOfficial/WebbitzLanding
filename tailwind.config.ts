@@ -66,6 +66,15 @@ const config: Config = {
       backdropBlur: {
         xs: "2px",
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translate3d(0, 0, 0)" },
+          "100%": { transform: "translate3d(-33.333%, 0, 0)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 30s linear infinite",
+      },
     },
   },
   plugins: [],

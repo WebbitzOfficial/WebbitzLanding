@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Quote, Star } from "lucide-react";
+import Link from "next/link";
 import fantozziImg from "@/images/fantozzi.png";
 import napoliImg from "@/images/napoli.png";
 import scuderiaImg from "@/images/scuderia.png";
@@ -63,9 +64,9 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card overflow-hidden flex flex-col"
+              className="glass-card overflow-hidden flex flex-col pt-8 pb-10 pr-10 pl-8"
             >
-              <div className="relative w-[calc(100%+4rem)] -mx-8 -mt-8 aspect-video overflow-hidden bg-gray-700 rounded-t-2xl mb-6">
+              <div className="relative w-[calc(100%+4rem)] -mx-8 -mt-8 aspect-video overflow-hidden bg-gray-700 rounded-t-2xl mb-8">
                 <Image
                   src={study.image}
                   alt={`Anteprima: ${study.title}`}
@@ -77,17 +78,25 @@ export default function Testimonials() {
               <h3 className="text-xl font-bold text-white mb-2">
                 {study.title}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+              <p className="text-gray-200 text-sm leading-relaxed mb-4 flex-grow">
                 {study.description}
               </p>
               <div className="relative pt-4 border-t border-gray-600">
                 <Quote className="absolute top-4 right-0 w-8 h-8 text-primary-500/30 -z-10" />
-                <p className="text-gray-300 italic text-sm leading-relaxed mb-3">
+                <p className="text-gray-200 italic text-sm leading-relaxed mb-3">
                   &ldquo;{study.review}&rdquo;
                 </p>
                 <div>
                   <p className="font-bold text-white text-sm">{study.author}</p>
-                  <p className="text-xs text-gray-500">{study.role}</p>
+                  <p className="text-xs text-gray-300">{study.role}</p>
+                </div>
+                <div className="mt-10 text-right">
+                  <Link
+                    href="#contatti"
+                    className="inline-block text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors"
+                  >
+                    Vuoi un risultato simile? →
+                  </Link>
                 </div>
               </div>
             </motion.article>

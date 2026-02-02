@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Navbar from "./Navbar";
+import LogoMarquee from "./LogoMarquee";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-gray-900 border-b border-gray-700">
+    <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-gray-900">
       <Navbar />
       
       {/* Background Orbs */}
@@ -28,7 +29,7 @@ export default function Hero() {
               Se i tuoi clienti non ti trovano online, <br className="hidden sm:block" />
               <span className="text-gradient">sceglieranno il tuo concorrente.</span>
             </h1>
-            <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 md:mb-10 leading-relaxed">
+            <p className="text-base md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 md:mb-10 leading-relaxed">
               Se oggi un cliente ti cerca su Google e non ti trova (o trova un sito lento e vecchio), è come se avessi la serranda abbassata a metà. È il momento di trasformare la tua presenza online in un motore che genera contatti e fatturato.
             </p>
 
@@ -42,7 +43,7 @@ export default function Hero() {
               </Link>
               <Link
                 href="#chi-siamo"
-                className="px-6 py-3 font-semibold text-gray-300 hover:text-primary-400 transition-colors w-full sm:w-auto text-sm md:text-base"
+                className="px-6 py-3 font-semibold text-gray-200 hover:text-primary-400 transition-colors w-full sm:w-auto text-sm md:text-base"
               >
                 Scopri di più
               </Link>
@@ -50,6 +51,7 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+      <LogoMarquee />
     </section>
   );
 }

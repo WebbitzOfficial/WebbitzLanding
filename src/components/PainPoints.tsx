@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { XCircle, AlertCircle, ShoppingCart } from "lucide-react";
+import { XCircle, AlertCircle, ShoppingCart, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const points = [
   {
@@ -35,7 +36,7 @@ export default function PainPoints() {
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
             Il sito web non è solo un biglietto da visita
           </h2>
-          <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-gray-200 max-w-2xl mx-auto">
             Molti piccoli imprenditori sottovalutano l'importanza di una presenza online professionale. Ecco la realtà dei fatti:
           </p>
         </div>
@@ -48,13 +49,22 @@ export default function PainPoints() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="p-8 rounded-3xl border border-gray-600 bg-gray-800 hover:border-gray-500 transition-colors"
+              className="p-8 rounded-3xl border border-gray-600 bg-gray-800 hover:border-gray-500 transition-colors flex flex-col"
             >
               <div className={`w-12 h-12 rounded-2xl ${point.bg} ${point.color} flex items-center justify-center mb-6`}>
                 <point.icon className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold text-white mb-4">{point.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{point.description}</p>
+              <p className="text-gray-200 leading-relaxed flex-grow">{point.description}</p>
+              <div className="mt-6 pt-6 border-t border-gray-600">
+                <Link
+                  href="#contatti"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-800 border border-gray-600 text-primary-400 font-semibold hover:border-primary-500 hover:text-primary-300 transition-colors text-sm w-full justify-center"
+                >
+                  Risolviamo insieme
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
