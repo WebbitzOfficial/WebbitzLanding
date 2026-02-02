@@ -71,7 +71,7 @@ export default function Bio() {
             viewport={{ once: true }}
             className="flex-1 flex justify-center relative"
           >
-            <div className="relative z-10 glass-card p-4 rotate-3 hover:rotate-0 transition-transform duration-500 max-w-sm w-full">
+            <div className="relative z-10 glass-card p-4 rotate-3 hover:rotate-0 transition-transform duration-500 w-[234px] md:w-full md:max-w-sm">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden relative grid grid-cols-2 grid-rows-2 gap-1">
                 {teamPhotos.map((src, i) => (
                   <div key={i} className="relative w-full h-full min-h-0">
