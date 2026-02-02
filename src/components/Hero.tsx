@@ -9,13 +9,20 @@ import LogoMarquee from "./LogoMarquee";
 export default function Hero() {
   return (
     <section className="relative min-h-[85vh] flex flex-col overflow-hidden bg-gray-900">
-      <Navbar />
+      <div className="relative z-10">
+        <Navbar />
+      </div>
       
-      {/* Background Orbs */}
-      <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary-500/20 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-0 left-0 -z-10 w-[500px] h-[500px] bg-primary-600/10 rounded-full blur-[120px] animate-pulse" />
+      {/* Colpi di luce: solo in alto a destra, meno luminosi */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Macchia arancione in alto a destra (luminosità ridotta) */}
+        <div className="absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full blur-[140px] animate-pulse" style={{ background: "rgba(232, 80, 2, 0.18)" }} />
+        <div className="absolute bottom-1/3 -right-20 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: "rgba(244, 123, 51, 0.12)" }} />
+        {/* Grigio/bianco lieve in alto a destra */}
+        <div className="absolute bottom-1/4 -right-32 w-[500px] h-[500px] rounded-full blur-[130px]" style={{ background: "rgba(255, 255, 255, 0.04)" }} />
+      </div>
 
-      <div className="flex-1 flex items-center pt-8 md:pt-0 pb-16 md:pb-24">
+      <div className="relative z-10 flex-1 flex items-center pt-8 md:pt-0 pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto px-6 text-center w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

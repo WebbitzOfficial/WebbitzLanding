@@ -45,7 +45,7 @@ export default function CTASection() {
                 href="#contatti"
                 className="group flex flex-col items-center gap-3 md:gap-4 transition-all hover:scale-110 mb-2"
               >
-                <span className="text-white font-bold text-[9px] md:text-xs uppercase tracking-[0.2em]">Raccontami della tua azienda</span>
+                <span className="text-white font-bold text-[9px] md:text-xs uppercase tracking-[0.2em]">Raccontaci della tua azienda</span>
                 <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-primary-500 border border-primary-400 flex items-center justify-center text-white shadow-glow transition-all ring-4 ring-primary-500/20">
                   <ArrowDown className="w-4 h-4 md:w-6 md:h-6 animate-bounce" />
                 </div>

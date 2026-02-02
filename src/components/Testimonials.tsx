@@ -47,7 +47,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
-            Dicono di me
+            Dicono di noi
           </h2>
           <div className="flex items-center justify-center gap-1 mb-4">
             {[...Array(5)].map((_, i) => (

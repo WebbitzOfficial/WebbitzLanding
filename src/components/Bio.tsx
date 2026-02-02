@@ -1,8 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
+
+const teamPhotos = [
+  "/team/Baro.png",
+  "/team/diego.png",
+  "/team/Nocchia.png",
+  "/team/Tommi.png",
+];
 
 export default function Bio() {
   return (
@@ -19,17 +27,17 @@ export default function Bio() {
               È il momento di cambiare marcia
             </h2>
             <p className="text-base md:text-lg text-gray-200 mb-6">
-              Piacere di conoscerti, sono <strong className="text-white">Andrea Pannocchia</strong> e in Webbitz sono il responsabile dello sviluppo siti web per le piccole-medie imprese.
+              Piacere di conoscervi, siamo il <strong className="text-white">team Webbitz</strong> e ci occupiamo dello sviluppo siti web per le piccole-medie imprese.
             </p>
             <p className="text-sm md:text-base text-gray-200 mb-8 leading-relaxed">
-              Nel mio lavoro, così come nella vita, metto al primo posto due valori: <strong className="text-white">trasparenza e professionalità</strong>.
-              Non ti parlerò in "informatichese" per confonderti. Ti parlerò in modo chiaro, spiegandoti cosa serve davvero alla tua azienda per crescere online e cosa invece è solo uno spreco di soldi.
+              Nel nostro lavoro mettiamo al primo posto due valori: <strong className="text-white">trasparenza e professionalità</strong>.
+              Non vi parleremo in "informatichese" per confondervi. Vi parleremo in modo chiaro, spiegandovi cosa serve davvero alla vostra azienda per crescere online e cosa invece è solo uno spreco di soldi.
             </p>
             
             <div className="space-y-4 max-w-md mx-auto md:mx-0">
               <div className="flex items-start gap-3 text-left">
                 <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-primary-400 mt-1 shrink-0" />
-                <p className="text-sm md:text-base text-gray-200 font-medium">Partner che parla la tua lingua</p>
+                <p className="text-sm md:text-base text-gray-200 font-medium">Partner che parlano la vostra lingua</p>
               </div>
               <div className="flex items-start gap-3 text-left">
                 <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-primary-400 mt-1 shrink-0" />
@@ -52,7 +60,7 @@ export default function Bio() {
                 href="#contatti"
                 className="px-6 py-3 font-semibold text-gray-200 border border-gray-500 rounded-xl hover:border-primary-500 hover:text-primary-400 transition-colors w-full sm:w-auto text-center text-sm md:text-base"
               >
-                Parlami del tuo progetto
+                Parlaci del tuo progetto
               </Link>
             </div>
           </motion.div>
@@ -64,11 +72,18 @@ export default function Bio() {
             className="flex-1 flex justify-center relative"
           >
             <div className="relative z-10 glass-card p-4 rotate-3 hover:rotate-0 transition-transform duration-500 max-w-sm w-full">
-              <div className="aspect-[4/5] bg-gray-700 rounded-2xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-accent-500 opacity-20" />
-                <div className="flex items-center justify-center h-full text-gray-400 italic px-8 text-center">
-                  [Immagine di Andrea Pannocchia]
-                </div>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden relative grid grid-cols-2 grid-rows-2 gap-1">
+                {teamPhotos.map((src, i) => (
+                  <div key={i} className="relative w-full h-full min-h-0">
+                    <Image
+                      src={src}
+                      alt={`Membro del team Webbitz ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 200px"
+                    />
+                  </div>
+                ))}
               </div>
               <Link
                 href="#contatti"

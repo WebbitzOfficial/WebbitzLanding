@@ -21,10 +21,10 @@ export default function ContactForm() {
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
-            Raccontami della tua azienda
+            Raccontaci della tua azienda
           </h2>
           <p className="text-sm md:text-base text-gray-200">
-            Compila il form e ti ricontatterò io stesso per una chiacchierata senza impegno.
+            Compila il form e ti ricontatteremo per una chiacchierata senza impegno.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function ContactForm() {
                 <Send className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Messaggio inviato!</h3>
-              <p className="text-gray-200">Ti ricontatterò al più presto. Grazie!</p>
+              <p className="text-gray-200">Ti ricontatteremo al più presto. Grazie!</p>
               <button
                 onClick={() => setStatus("idle")}
                 className="mt-8 text-primary-400 font-semibold hover:underline"
