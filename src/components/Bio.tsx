@@ -27,7 +27,7 @@ export default function Bio() {
               È il momento di cambiare marcia
             </h2>
             <p className="text-base md:text-lg text-gray-200 mb-6">
-              Piacere di conoscervi, siamo il <strong className="text-white">team Webbitz</strong> e ci occupiamo dello sviluppo siti web per le piccole-medie imprese.
+              Piacere di conoscervi, siamo Francesco, Diego, Andrea e Tommaso, il <strong className="text-white">team Webbitz</strong>, e ci occupiamo dello sviluppo di siti web per le piccole-medie imprese.
             </p>
             <p className="text-sm md:text-base text-gray-200 mb-8 leading-relaxed">
               Nel nostro lavoro mettiamo al primo posto due valori: <strong className="text-white">trasparenza e professionalità</strong>.
