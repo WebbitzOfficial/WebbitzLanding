@@ -3,25 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --primary-blue: #158CFF;
-  --primary-blue-dark: #0F6ECC;
-  --primary-blue-light: #33A7FF;
-  --accent-blue: #FFE6FF;
-  --blue-glow: rgba(59, 130, 246, 0.3);
-  
-  --gray-50: #FAFAFA;
-  --gray-100: #F5F5F5;
-  --gray-900: #0A0A0A;
-  --gray-800: #1A1A1A;
-  
-  --gradient-primary: linear-gradient(135deg, #158CFF 0%, #FE2AFF 100%);
-  --gradient-secondary: linear-gradient(135deg, #FFE6FF 0%, #E6F4FF 100%);
-  --gradient-dark: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+  /* Branding Orange (Primary) */
+  --primary: #E85002;
+  --primary-dark: #C94402;
+  --primary-light: #F47B33;
+  /* Branding Gradient */
+  --gradient-beige: #D9C3AB;
+  --gradient-orange: #F16001;
+  --gradient-red: #C10801;
+  --glow: rgba(232, 80, 2, 0.3);
+
+  /* Grays – Brand */
+  --white: #F9F9F9;
+  --gray-light: #A7A7A7;
+  --gray: #646464;
+  --gray-dark: #333333;
+  --black: #000000;
+
+  --gradient-primary: linear-gradient(135deg, #F16001 0%, #E85002 50%, #C10801 100%);
+  --gradient-secondary: linear-gradient(135deg, #D9C3AB 0%, #F5EDE5 50%, #FEF3EE 100%);
+  --gradient-dark: linear-gradient(135deg, #333333 0%, #000000 100%);
 }
 
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900 antialiased selection:bg-primary-100 selection:text-primary-900;
+    @apply bg-gray-900 text-gray-50 antialiased selection:bg-primary-500/30 selection:text-white;
   }
 }
 
@@ -29,12 +35,12 @@
   .btn-primary {
     @apply bg-gradient-primary text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98];
   }
-  
+
   .glass-card {
-    @apply bg-white/80 backdrop-blur-xl border border-primary-200 shadow-premium rounded-3xl p-8 transition-all duration-300 hover:border-primary-300;
+    @apply bg-gray-800/90 backdrop-blur-xl border border-gray-600 shadow-premium rounded-3xl p-8 transition-all duration-300 hover:border-gray-500;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-primary-800 to-primary-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-primary-300 to-primary-500;
   }
 }

@@ -42,10 +42,10 @@ const caseStudies = [
 
 export default function Testimonials() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-gray-900">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
             Dicono di me
           </h2>
           <div className="flex items-center justify-center gap-1 mb-4">
@@ -65,7 +65,7 @@ export default function Testimonials() {
               transition={{ delay: index * 0.1 }}
               className="glass-card overflow-hidden flex flex-col"
             >
-              <div className="relative w-[calc(100%+4rem)] -mx-8 -mt-8 aspect-video overflow-hidden bg-gray-100 rounded-t-2xl mb-6">
+              <div className="relative w-[calc(100%+4rem)] -mx-8 -mt-8 aspect-video overflow-hidden bg-gray-700 rounded-t-2xl mb-6">
                 <Image
                   src={study.image}
                   alt={`Anteprima: ${study.title}`}
@@ -74,19 +74,19 @@ export default function Testimonials() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <h3 className="text-xl font-bold text-white mb-2">
                 {study.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+              <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
                 {study.description}
               </p>
-              <div className="relative pt-4 border-t border-gray-100">
-                <Quote className="absolute top-4 right-0 w-8 h-8 text-primary-100 -z-10" />
-                <p className="text-gray-700 italic text-sm leading-relaxed mb-3">
+              <div className="relative pt-4 border-t border-gray-600">
+                <Quote className="absolute top-4 right-0 w-8 h-8 text-primary-500/30 -z-10" />
+                <p className="text-gray-300 italic text-sm leading-relaxed mb-3">
                   &ldquo;{study.review}&rdquo;
                 </p>
                 <div>
-                  <p className="font-bold text-gray-900 text-sm">{study.author}</p>
+                  <p className="font-bold text-white text-sm">{study.author}</p>
                   <p className="text-xs text-gray-500">{study.role}</p>
                 </div>
               </div>

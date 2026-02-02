@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function CTASection() {
   return (
-    <section className="py-12 md:py-24 bg-white overflow-hidden">
+    <section className="py-12 md:py-24 bg-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="relative glass-card bg-gradient-dark p-8 md:p-20 text-center overflow-hidden">
           {/* Decorative background */}

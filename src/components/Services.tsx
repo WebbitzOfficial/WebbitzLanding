@@ -28,10 +28,10 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-gray-800">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
             Ecco come posso aiutarti
           </h2>
         </div>
@@ -44,13 +44,13 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-gradient-to-br from-primary-50/50 to-white p-6 md:p-8 rounded-3xl border border-primary-100 shadow-sm hover:shadow-md transition-shadow text-center md:text-left"
+              className="bg-gray-800/80 p-6 md:p-8 rounded-3xl border border-gray-600 shadow-sm hover:border-gray-500 transition-colors text-center md:text-left"
             >
-              <div className="w-12 h-12 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 mx-auto md:mx-0">
+              <div className="w-12 h-12 rounded-2xl bg-primary-500/20 text-primary-400 flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <service.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+              <h3 className="text-lg md:text-xl font-bold text-white mb-3">{service.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{service.description}</p>
             </motion.div>
           ))}
         </div>
