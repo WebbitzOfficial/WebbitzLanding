@@ -23,6 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   return (
     <html lang="it" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        <meta name="facebook-domain-verification" content="50iwqo8os88sffaamrhmggu1x6mvfd" />
         {/* Google Tag Manager */}
         <script dangerouslySetInnerHTML={{ __html: gtmScript }} />
         {/* End Google Tag Manager */}
