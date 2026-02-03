@@ -5,17 +5,51 @@ import { Send, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+const WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/26303800/ulwpeus/";
+
+function getUtmString(): string {
+  if (typeof window === "undefined") return "none";
+  const params = new URLSearchParams(window.location.search);
+  const utmKeys = ["utm_campaign", "utm_content", "utm_source", "utm_medium", "utm_term"];
+  const parts: string[] = [];
+  utmKeys.forEach((key) => {
+    const value = params.get(key);
+    if (value) parts.push(`${key}=${encodeURIComponent(value)}`);
+  });
+  return parts.length > 0 ? parts.join("&") : "none";
+}
+
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "loading">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const router = useRouter();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-    // Simulate API call, then redirect to thank-you
-    setTimeout(() => {
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const body = {
+      "name-surname": formData.get("name") ?? "",
+      "nome-azienda": formData.get("company") ?? "",
+      "ha-sito": formData.get("has_website") ?? "",
+      telefono: formData.get("phone") ?? "",
+      email: formData.get("email") ?? "",
+      obbiettivo: formData.get("goal") ?? "",
+      utm: getUtmString(),
+    };
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) throw new Error("Invio fallito");
       router.push("/thank-you");
-    }, 1500);
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -55,6 +89,7 @@ export default function ContactForm() {
                     required
                     type="text"
                     id="name"
+                    name="name"
                     placeholder="Mario Rossi"
                     className="w-full px-5 py-4 rounded-xl border border-gray-600 bg-gray-700 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all"
                   />
@@ -67,6 +102,7 @@ export default function ContactForm() {
                     required
                     type="text"
                     id="company"
+                    name="company"
                     placeholder="La tua Azienda Srl"
                     className="w-full px-5 py-4 rounded-xl border border-gray-600 bg-gray-700 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all"
                   />
@@ -82,6 +118,7 @@ export default function ContactForm() {
                     required
                     type="tel"
                     id="phone"
+                    name="phone"
                     placeholder="+39 333 123 4567"
                     className="w-full px-5 py-4 rounded-xl border border-gray-600 bg-gray-700 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all"
                   />
@@ -94,6 +131,7 @@ export default function ContactForm() {
                     required
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="mario.rossi@azienda.it"
                     className="w-full px-5 py-4 rounded-xl border border-gray-600 bg-gray-700 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all"
                   />
@@ -124,6 +162,7 @@ export default function ContactForm() {
                 <div className="relative">
                   <select
                     id="goal"
+                    name="goal"
                     className="w-full px-5 py-4 pr-12 rounded-xl border border-gray-600 bg-gray-700 text-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all appearance-none"
                   >
                     <option>Avere più clienti</option>
@@ -134,6 +173,11 @@ export default function ContactForm() {
                 </div>
               </div>
 
+              {status === "error" && (
+                <p className="text-red-400 text-sm">
+                  Qualcosa è andato storto. Riprova o contattaci direttamente.
+                </p>
+              )}
               <button
                 disabled={status === "loading"}
                 type="submit"
