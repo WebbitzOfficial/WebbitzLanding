@@ -5,12 +5,13 @@ import { Send, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-function getUtmString(): string {
-  if (typeof window === "undefined") return "utm_campaign=none&utm_content=none";
+function getUtmParams(): { utm_campaign: string; utm_content: string } {
+  if (typeof window === "undefined") return { utm_campaign: "none", utm_content: "none" };
   const params = new URLSearchParams(window.location.search);
-  const utmCampaign = params.get("utm_campaign")?.trim() || "none";
-  const utmContent = params.get("utm_content")?.trim() || "none";
-  return `utm_campaign=${encodeURIComponent(utmCampaign)}&utm_content=${encodeURIComponent(utmContent)}`;
+  return {
+    utm_campaign: params.get("utm_campaign")?.trim() || "none",
+    utm_content: params.get("utm_content")?.trim() || "none",
+  };
 }
 
 export default function ContactForm() {
@@ -23,6 +24,7 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const utm = getUtmParams();
     const body = {
       "name-surname": formData.get("name") ?? "",
       "nome-azienda": formData.get("company") ?? "",
@@ -30,7 +32,8 @@ export default function ContactForm() {
       telefono: formData.get("phone") ?? "",
       email: formData.get("email") ?? "",
       obbiettivo: formData.get("goal") ?? "",
-      utm: getUtmString(),
+      utm_campaign: utm.utm_campaign,
+      utm_content: utm.utm_content,
     };
 
     try {
