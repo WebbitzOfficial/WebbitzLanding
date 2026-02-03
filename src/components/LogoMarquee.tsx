@@ -5,10 +5,13 @@ import Image from "next/image";
 const LOGOS = [
   "FantozziBianco.png",
   "Logo_Diaz_Green.avif",
-  "Logo-Napoli-Into-Core-white-2.png",
+  "go2westlogo.svg",
   "logo-Ristoro-antica-scuderia.png",
   "logo.png",
+  "etabetalogo.png",
 ];
+
+const WHITE_LOGOS = ["Logo_Diaz_Green.avif", "logo.png"];
 
 export default function LogoMarquee() {
   return (
@@ -30,7 +33,7 @@ export default function LogoMarquee() {
         {[...LOGOS, ...LOGOS, ...LOGOS].map((src, i) => (
           <div
             key={`${src}-${i}`}
-            className="shrink-0 flex items-center justify-center h-12 md:h-16 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            className={`shrink-0 flex items-center justify-center h-12 md:h-16 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300 ${(src === "etabetalogo.png" || WHITE_LOGOS.includes(src)) ? "[&_img]:brightness-0 [&_img]:invert" : ""}`}
           >
             <Image
               src={`/loghi-aziende/${src}`}

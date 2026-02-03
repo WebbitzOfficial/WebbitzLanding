@@ -5,8 +5,9 @@ import Image from "next/image";
 import { Quote, Star } from "lucide-react";
 import Link from "next/link";
 import fantozziImg from "@/images/fantozzi.png";
-import napoliImg from "@/images/napoli.png";
 import scuderiaImg from "@/images/scuderia.png";
+import etabetaImg from "@/images/etabeta.png";
+import go2westImg from "@/images/go2west.png";
 
 const caseStudies = [
   {
@@ -20,14 +21,14 @@ const caseStudies = [
     role: "Titolari",
   },
   {
-    image: napoliImg,
-    title: "Napoli Into Core",
+    image: go2westImg,
+    title: "Go2West",
     description:
-      "Sito web professionale per Napoli Into Core: struttura ricettiva nel cuore di Napoli con prenotazione completa e intuitiva, design moderno che valorizza la bellezza della città partenopea.",
+      "Sito web per Go2West, grossista di viaggi: piattaforma B2B che presenta il catalogo pacchetti alle agenzie, area riservata e strumenti per la prenotazione, con un'immagine chiara e professionale nel settore turistico.",
     review:
-      "Da quando è online ci funziona benissimo. Le prenotazioni arrivano in modo chiaro, i clienti trovano tutto subito e il sito ci rappresenta come volevamo. Soddisfattissimi.",
-    author: "Napoli Into Core",
-    role: "B&B Napoli",
+      "Sito moderno e intuitivo. Le agenzie trovano subito i pacchetti e le condizioni, e noi abbiamo ridotto le richieste ripetitive. Consigliamo Webbitz a chi opera nel turismo.",
+    author: "Go2West",
+    role: "Grossista di viaggi",
   },
   {
     image: scuderiaImg,
@@ -39,13 +40,23 @@ const caseStudies = [
     author: "L'Antica Scuderia",
     role: "Ristoro – Alta cucina Chianti",
   },
+  {
+    image: etabetaImg,
+    title: "Eta Beta Costruzioni",
+    description:
+      "Sito web per Eta Beta Costruzioni S.R.L.: presenza online professionale per impresa edile, con focus su servizi di costruzione, chiarezza dei contatti e immagine di affidabilità nel settore.",
+    review:
+      "Ottimo servizio, capacità nel capire le esigenze e i gusti dei clienti. Consiglio a tutti di affidarsi a Webbitz!",
+    author: "Eta Beta Costruzioni S.R.L.",
+    role: "Costruzioni / Edilizia",
+  },
 ];
 
 export default function Testimonials() {
   return (
     <section className="py-16 md:py-24 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12 md:mb-16">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="text-center mb-10 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
             Dicono di noi
           </h2>
@@ -56,7 +67,7 @@ export default function Testimonials() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {caseStudies.map((study, index) => (
             <motion.article
               key={index}
@@ -64,33 +75,33 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card overflow-hidden flex flex-col pt-8 pb-10 pr-10 pl-8"
+              className="glass-card overflow-hidden flex flex-col pt-6 pb-8 pr-6 pl-6"
             >
-              <div className="relative w-[calc(100%+4rem)] -mx-8 -mt-8 aspect-video overflow-hidden bg-gray-700 rounded-t-2xl mb-8">
+              <div className="relative w-[calc(100%+3rem)] -mx-6 -mt-6 aspect-video overflow-hidden bg-gray-700 rounded-t-xl mb-6">
                 <Image
                   src={study.image}
                   alt={`Anteprima: ${study.title}`}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 {study.title}
               </h3>
-              <p className="text-gray-200 text-sm leading-relaxed mb-4 flex-grow">
+              <p className="text-gray-200 text-sm leading-relaxed mb-3 flex-grow">
                 {study.description}
               </p>
-              <div className="relative pt-4 border-t border-gray-600">
-                <Quote className="absolute top-4 right-0 w-8 h-8 text-primary-500/30 -z-10" />
-                <p className="text-gray-200 italic text-sm leading-relaxed mb-3">
+              <div className="relative pt-3 border-t border-gray-600">
+                <Quote className="absolute top-3 right-0 w-6 h-6 text-primary-500/30 -z-10" />
+                <p className="text-gray-200 italic text-sm leading-relaxed mb-2">
                   &ldquo;{study.review}&rdquo;
                 </p>
                 <div>
                   <p className="font-bold text-white text-sm">{study.author}</p>
                   <p className="text-xs text-gray-300">{study.role}</p>
                 </div>
-                <div className="mt-10 text-right">
+                <div className="mt-6 text-right">
                   <Link
                     href="#contatti"
                     className="inline-block text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors"

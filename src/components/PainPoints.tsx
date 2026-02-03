@@ -49,21 +49,29 @@ export default function PainPoints() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="p-8 rounded-3xl border border-gray-600 bg-gray-800 hover:border-gray-500 transition-colors flex flex-col"
+              className="relative flex flex-col rounded-3xl p-[2px] overflow-hidden bg-gray-900 shadow-[0_0_15px_rgba(232,80,2,0.4),0_0_30px_rgba(232,80,2,0.15)] hover:shadow-[0_0_20px_rgba(232,80,2,0.5),0_0_40px_rgba(232,80,2,0.2)] transition-shadow duration-300"
             >
-              <div className={`w-12 h-12 rounded-2xl ${point.bg} ${point.color} flex items-center justify-center mb-6`}>
-                <point.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-4">{point.title}</h3>
-              <p className="text-gray-200 leading-relaxed flex-grow">{point.description}</p>
-              <div className="mt-6 pt-6 border-t border-gray-600">
-                <Link
-                  href="#contatti"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-800 border border-gray-600 text-primary-400 font-semibold hover:border-primary-500 hover:text-primary-300 transition-colors text-sm w-full justify-center"
-                >
-                  Risolviamo insieme
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+              {/* Bordo neon arancione con gradiente bianco */}
+              <div
+                className="absolute inset-0 rounded-3xl bg-gradient-neon-border pointer-events-none"
+                style={{ borderRadius: "inherit" }}
+                aria-hidden
+              />
+              <div className="relative z-10 flex flex-1 min-h-0 rounded-[22px] bg-gray-800 p-8 flex flex-col overflow-hidden">
+                <div className={`w-12 h-12 rounded-2xl ${point.bg} ${point.color} flex items-center justify-center mb-6`}>
+                  <point.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">{point.title}</h3>
+                <p className="text-gray-200 leading-relaxed flex-grow">{point.description}</p>
+                <div className="mt-6 pt-6 border-t border-gray-600">
+                  <Link
+                    href="#contatti"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gray-800 border border-gray-600 text-primary-400 font-semibold hover:border-primary-500 hover:text-primary-300 transition-colors text-sm w-full justify-center"
+                  >
+                    Risolviamo insieme
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}

@@ -17,8 +17,17 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contatti" className="py-16 md:py-24 bg-gray-900">
-      <div className="max-w-3xl mx-auto px-6">
+    <section id="contatti" className="relative py-16 md:py-24 bg-gray-900 overflow-hidden">
+      {/* Macchie sul lato destro, centrate in verticale */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/2 -translate-y-1/2 -right-32 w-[600px] h-[600px] rounded-full blur-[120px] opacity-80" style={{ background: "rgba(232, 80, 2, 0.15)" }} />
+        <div className="absolute top-1/2 -translate-y-1/2 -right-20 w-[350px] h-[350px] rounded-full blur-[90px]" style={{ background: "rgba(244, 123, 51, 0.1)" }} />
+        <div className="absolute top-1/2 -translate-y-1/2 -left-20 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: "rgba(255, 255, 255, 0.03)" }} />
+        {/* Macchia bianco/grigio chiaro sul lato sinistro */}
+        <div className="absolute top-1/2 -translate-y-1/2 -left-24 w-[450px] h-[450px] rounded-full blur-[110px]" style={{ background: "rgba(249, 249, 249, 0.08)" }} />
+      </div>
+
+      <div className="relative z-10 max-w-3xl mx-auto px-6">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
             Raccontaci della tua azienda

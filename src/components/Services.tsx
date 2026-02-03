@@ -58,9 +58,15 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-gray-800/80 p-6 md:p-8 rounded-3xl border border-gray-600 shadow-sm hover:border-gray-500 transition-colors text-center md:text-left flex flex-col overflow-hidden"
+              className="relative flex flex-col rounded-3xl p-[2px] overflow-hidden bg-gray-800 shadow-[0_0_15px_rgba(232,80,2,0.3),0_0_30px_rgba(232,80,2,0.12)] hover:shadow-[0_0_20px_rgba(232,80,2,0.45),0_0_40px_rgba(232,80,2,0.18)] transition-shadow duration-300"
             >
-              <div className="relative -mx-6 -mt-6 md:-mx-8 md:-mt-8 w-[calc(100%+3rem)] md:w-[calc(100%+4rem)] aspect-video overflow-hidden bg-gray-700 rounded-t-2xl mb-6">
+              <div
+                className="absolute inset-0 rounded-3xl bg-gradient-neon-border-orange pointer-events-none"
+                style={{ borderRadius: "inherit" }}
+                aria-hidden
+              />
+              <div className="relative z-10 flex flex-1 min-h-0 rounded-[22px] bg-gray-800 p-6 md:p-8 flex flex-col overflow-hidden text-center md:text-left">
+                <div className="relative -mx-6 -mt-6 md:-mx-8 md:-mt-8 w-[calc(100%+3rem)] md:w-[calc(100%+4rem)] aspect-video overflow-hidden bg-gray-700 rounded-t-2xl mb-6 shrink-0">
                 {service.image ? (
                   <Image
                     src={service.image}
@@ -91,6 +97,7 @@ export default function Services() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
+                </div>
             </motion.div>
           ))}
         </div>

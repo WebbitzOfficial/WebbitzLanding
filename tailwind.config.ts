@@ -56,6 +56,10 @@ const config: Config = {
         "gradient-secondary":
           "linear-gradient(135deg, #D9C3AB 0%, #F5EDE5 50%, #FEF3EE 100%)",
         "gradient-dark": "linear-gradient(135deg, #333333 0%, #000000 100%)",
+        "gradient-neon-border":
+          "conic-gradient(from 0deg, #E85002 0%, #F47B33 25%, #F9F9F9 50%, #FDE6DC 75%, #E85002 100%)",
+        "gradient-neon-border-orange":
+          "conic-gradient(from 0deg, #E85002 0%, #F47B33 25%, #FF6B2C 50%, #F9B496 75%, #E85002 100%)",
       },
       boxShadow: {
         glow: "0 0 30px rgba(232, 80, 2, 0.3)",
@@ -71,9 +75,14 @@ const config: Config = {
           "0%": { transform: "translate3d(0, 0, 0)" },
           "100%": { transform: "translate3d(-33.333%, 0, 0)" },
         },
+        "gradient-rotate": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         marquee: "marquee 30s linear infinite",
+        "gradient-rotate": "gradient-rotate 4s linear infinite",
       },
     },
   },
