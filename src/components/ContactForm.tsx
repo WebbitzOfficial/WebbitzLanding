@@ -6,15 +6,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 function getUtmString(): string {
-  if (typeof window === "undefined") return "none";
+  if (typeof window === "undefined") return "utm_campaign=none&utm_content=none";
   const params = new URLSearchParams(window.location.search);
-  const utmKeys = ["utm_campaign", "utm_content", "utm_source", "utm_medium", "utm_term"];
-  const parts: string[] = [];
-  utmKeys.forEach((key) => {
-    const value = params.get(key);
-    if (value) parts.push(`${key}=${encodeURIComponent(value)}`);
-  });
-  return parts.length > 0 ? parts.join("&") : "none";
+  const utmCampaign = params.get("utm_campaign")?.trim() || "none";
+  const utmContent = params.get("utm_content")?.trim() || "none";
+  return `utm_campaign=${encodeURIComponent(utmCampaign)}&utm_content=${encodeURIComponent(utmContent)}`;
 }
 
 export default function ContactForm() {
