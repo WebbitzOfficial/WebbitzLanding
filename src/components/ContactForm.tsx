@@ -1,18 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { Send, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "loading">("idle");
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    // Simulate API call
+    // Simulate API call, then redirect to thank-you
     setTimeout(() => {
-      setStatus("success");
+      router.push("/thank-you");
     }, 1500);
   };
 
@@ -43,22 +45,7 @@ export default function ContactForm() {
           viewport={{ once: true }}
           className="bg-gray-800 p-6 md:p-12 rounded-[2rem] border border-gray-600 shadow-premium"
         >
-          {status === "success" ? (
-            <div className="text-center py-12">
-              <div className="w-20 h-20 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Send className="w-10 h-10" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Messaggio inviato!</h3>
-              <p className="text-gray-200">Ti ricontatteremo al più presto. Grazie!</p>
-              <button
-                onClick={() => setStatus("idle")}
-                className="mt-8 text-primary-400 font-semibold hover:underline"
-              >
-                Invia un altro messaggio
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-semibold text-gray-200 ml-1">
@@ -86,6 +73,33 @@ export default function ContactForm() {
                 </div>
               </div>
 
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-sm font-semibold text-gray-200 ml-1">
+                    Numero di telefono
+                  </label>
+                  <input
+                    required
+                    type="tel"
+                    id="phone"
+                    placeholder="+39 333 123 4567"
+                    className="w-full px-5 py-4 rounded-xl border border-gray-600 bg-gray-700 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-semibold text-gray-200 ml-1">
+                    Email
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    id="email"
+                    placeholder="mario.rossi@azienda.it"
+                    className="w-full px-5 py-4 rounded-xl border border-gray-600 bg-gray-700 text-white placeholder-gray-500 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all"
+                  />
+                </div>
+              </div>
+
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-200 ml-1">
                   Hai già un sito web?
@@ -107,14 +121,17 @@ export default function ContactForm() {
                 <label htmlFor="goal" className="text-sm font-semibold text-gray-200 ml-1">
                   Qual è il tuo obiettivo principale?
                 </label>
-                <select
-                  id="goal"
-                  className="w-full px-5 py-4 rounded-xl border border-gray-600 bg-gray-700 text-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all appearance-none"
-                >
-                  <option>Avere più clienti</option>
-                  <option>Farmi conoscere</option>
-                  <option>Vendere online</option>
-                </select>
+                <div className="relative">
+                  <select
+                    id="goal"
+                    className="w-full px-5 py-4 pr-12 rounded-xl border border-gray-600 bg-gray-700 text-white focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 outline-none transition-all appearance-none"
+                  >
+                    <option>Avere più clienti</option>
+                    <option>Farmi conoscere</option>
+                    <option>Vendere online</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                </div>
               </div>
 
               <button
@@ -126,7 +143,6 @@ export default function ContactForm() {
                 <Send className="w-5 h-5" />
               </button>
             </form>
-          )}
         </motion.div>
       </div>
     </section>
