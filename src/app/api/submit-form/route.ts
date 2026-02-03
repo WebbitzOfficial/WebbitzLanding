@@ -7,6 +7,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const res = await fetch(WEBHOOK_URL, {
       method: "POST",
+      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
