@@ -5,8 +5,6 @@ import { Send, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/26303800/ulwpeus/";
-
 function getUtmString(): string {
   if (typeof window === "undefined") return "none";
   const params = new URLSearchParams(window.location.search);
@@ -40,7 +38,7 @@ export default function ContactForm() {
     };
 
     try {
-      const res = await fetch(WEBHOOK_URL, {
+      const res = await fetch("/api/submit-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
