@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <nav className="relative z-50 w-full px-4 md:px-6 py-6 md:py-8 bg-transparent">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="relative w-32 md:w-48 h-10 md:h-14 brightness-0 invert">
+        <Link href="/" className="relative w-32 md:w-48 h-10 md:h-14">
           <Image
             src="/logo/LogoWebbitz.png"
             alt="Webbitz Logo"

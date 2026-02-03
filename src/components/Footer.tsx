@@ -12,7 +12,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="flex flex-col items-center md:items-start gap-4">
-          <div className="relative w-32 h-10 brightness-0 invert">
+          <div className="relative w-32 h-10">
             <Image
               src="/logo/LogoWebbitz.png"
               alt="Webbitz Logo"
