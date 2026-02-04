@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 :root {
+  /* SF Pro Display: Apple system font, fallback per altri OS */
+  --font-sf-pro: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
   /* Branding Orange (Primary) */
   --primary: #E85002;
   --primary-dark: #C94402;
@@ -27,6 +30,7 @@
 
 @layer base {
   body {
+    font-family: var(--font-sf-pro);
     @apply bg-gray-900 text-gray-50 antialiased selection:bg-primary-500/30 selection:text-white;
   }
 }

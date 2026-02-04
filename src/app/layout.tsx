@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Webbitz - Trasforma la tua presenza online",
@@ -28,7 +25,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <script dangerouslySetInnerHTML={{ __html: gtmScript }} />
         {/* End Google Tag Manager */}
       </head>
-      <body className={inter.className} suppressHydrationWarning>
+      <body className="font-sf-pro" suppressHydrationWarning>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
